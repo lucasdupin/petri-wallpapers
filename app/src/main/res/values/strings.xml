@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Worms</string>
+    <string name="app_name">Petri</string>
+    <string name="sample1_description">Petri Wallpaper</string>
+    <string name="sample2_description">Petri Wallpaper</string>
+    <string name="sample3_description">Petri Wallpaper</string>
+    <string name="sample4_description">Petri Wallpaper</string>
 </resources>

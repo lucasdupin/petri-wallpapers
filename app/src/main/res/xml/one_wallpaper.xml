@@ -2,4 +2,4 @@
 <wallpaper
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:thumbnail="@drawable/sample3"
-    android:description="@string/app_name"/>
+    android:description="@string/sample3_description"/>
