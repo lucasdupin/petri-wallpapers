@@ -19,10 +19,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".TwoWormsWallpaperService"
+            android:enabled="true"
+            android:label="Sample 1"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/two_wallpaper"></meta-data>
+        </service>
         <service
             android:name=".HugeWormWallpaperService"
             android:enabled="true"
-            android:label="Worms"
+            android:label="Sample 2"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -30,25 +44,12 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/wallpaper"></meta-data>
-        </service>
-        <service
-            android:name=".PetriDishWallpaperService"
-            android:enabled="true"
-            android:label="Worms"
-            android:permission="android.permission.BIND_WALLPAPER">
-            <intent-filter>
-                <action android:name="android.service.wallpaper.WallpaperService" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.service.wallpaper"
-                android:resource="@xml/wallpaper"></meta-data>
+                android:resource="@xml/one_wallpaper"></meta-data>
         </service>
         <service
             android:name=".FiftyWormsWallpaperService"
             android:enabled="true"
-            android:label="Worms"
+            android:label="Sample 3"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -56,12 +57,12 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/wallpaper"></meta-data>
+                android:resource="@xml/fifty_wallpaper"></meta-data>
         </service>
         <service
-            android:name=".TwoWormsWallpaperService"
+            android:name=".PetriDishWallpaperService"
             android:enabled="true"
-            android:label="Worms"
+            android:label="Sample 4"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -69,8 +70,9 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/wallpaper"></meta-data>
+                android:resource="@xml/petrish_wallpaper"></meta-data>
         </service>
+
 
     </application>
 

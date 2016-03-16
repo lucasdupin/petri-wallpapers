@@ -3,33 +3,33 @@ package b_reel.com.livewallpapercanvas;
 /**
  * Created by user on 3/16/16.
  */
-public class TwoWormsWallpaper extends WormWallpaperService {
+public class FiftyWormsWallpaperService extends WormWallpaperService {
     @Override
     public Engine onCreateEngine() {
         return new WormWallpaperService.Engine(new IWallpaperConfig() {
             @Override
             public int getWormCount() {
-                return 2;
+                return 50;
             }
 
             @Override
             public int getWormSegments() {
-                return 5;
+                return 25;
             }
 
             @Override
             public int getWormSegmentSize() {
-                return 150;
+                return 35;
             }
 
             @Override
             public float getWormSpeed() {
-                return 0.1f;
+                return 0.9f;
             }
 
             @Override
             public int getStrokeWidth() {
-                return 100;
+                return 5;
             }
         });
     }
