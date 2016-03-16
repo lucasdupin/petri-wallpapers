@@ -36,6 +36,11 @@ public class HugeWormWallpaperService extends WormWallpaperService {
             public int getInteractionRadius() {
                 return 25;
             }
+
+            @Override
+            public int getWormInterestRadius() {
+                return 650;
+            }
         });
     }
 }

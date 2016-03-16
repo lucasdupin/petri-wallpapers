@@ -114,4 +114,12 @@ public class Worm {
             nextSegment.set((int) (segment.x + offset.x * segmentSize), (int) (segment.y + offset.y * segmentSize));
         }
     }
+
+    public float getX() {
+        return points[0].x;
+    }
+
+    public float getY() {
+        return points[0].y;
+    }
 }

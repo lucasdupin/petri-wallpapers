@@ -36,6 +36,11 @@ public class PetriDishWallpaperService extends WormWallpaperService {
             public int getInteractionRadius() {
                 return 200;
             }
+
+            @Override
+            public int getWormInterestRadius() {
+                return 650;
+            }
         });
     }
 }

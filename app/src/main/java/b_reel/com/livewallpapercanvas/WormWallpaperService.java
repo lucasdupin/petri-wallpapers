@@ -67,8 +67,12 @@ public class WormWallpaperService extends WallpaperService {
         public void onTouchEvent(MotionEvent event) {
             super.onTouchEvent(event);
             if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
-                for (Worm worm : worms)
-                    worm.move((int) event.getX(), (int) event.getY());
+                for (Worm worm : worms) {
+                    double distanceFromTouch = Math.pow(event.getX() - worm.getX(), 2) + Math.pow(event.getY() - worm.getY(), 2);
+                    if (distanceFromTouch < config.getWormInterestRadius()*config.getWormInterestRadius())
+                        worm.move((int) event.getX(), (int) event.getY());
+                }
+
             }
         }
 
@@ -108,8 +112,8 @@ public class WormWallpaperService extends WallpaperService {
                 }
                 holder.unlockCanvasAndPost(canvas);
             } catch (IllegalArgumentException e){
-                Log.e("WS", "CANVAS Illegal arg");
-                e.printStackTrace();
+                //Log.e("WS", "CANVAS Illegal arg");
+                //e.printStackTrace();
             }
         }
     }

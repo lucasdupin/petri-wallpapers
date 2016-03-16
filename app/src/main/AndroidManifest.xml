@@ -23,7 +23,7 @@
         <service
             android:name=".PetriDishWallpaperService"
             android:enabled="true"
-            android:label="Sample 1"
+            android:label="Culture 1"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -37,7 +37,7 @@
         <service
             android:name=".FiftyWormsWallpaperService"
             android:enabled="true"
-            android:label="Sample 2"
+            android:label="Culture 2"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -51,7 +51,7 @@
         <service
             android:name=".HugeWormWallpaperService"
             android:enabled="true"
-            android:label="Sample 3"
+            android:label="Culture 3"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -64,7 +64,7 @@
         <service
             android:name=".TwoWormsWallpaperService"
             android:enabled="true"
-            android:label="Sample 4"
+            android:label="Culture 4"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
