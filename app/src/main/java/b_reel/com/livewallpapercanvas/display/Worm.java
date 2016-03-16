@@ -88,7 +88,6 @@ public class Worm {
         if ( sqDistanceTravelled < MIN_DIST*MIN_DIST) {
             move();
         }
-        Log.d(TAG, "Will travel " + Math.sqrt(sqDistanceTravelled) + " pixels: " + start.x + "," + start.y + " - " + destinationPoint.x + ":" + destinationPoint.y);
 
         // Move the head
         start.x += (destinationPoint.x - start.x) * 0.1 * config.getWormSpeed();

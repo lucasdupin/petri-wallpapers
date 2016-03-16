@@ -9,12 +9,12 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onResume() {
+        super.onResume();
 
         Intent intent = new Intent(WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER);
         intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
-                new ComponentName(this, HugeWormWallpaperService.class));
+                new ComponentName(this, WormWallpaperService.class));
         startActivity(intent);
     }
 }

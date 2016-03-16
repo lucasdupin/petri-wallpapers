@@ -4,7 +4,7 @@
 
     <uses-feature
         android:name="android.software.live_wallpaper"
-        android:required="true"></uses-feature>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +21,7 @@
         </activity>
 
         <service
-            android:name=".TwoWormsWallpaperService"
+            android:name=".PetriDishWallpaperService"
             android:enabled="true"
             android:label="Sample 1"
             android:permission="android.permission.BIND_WALLPAPER">
@@ -31,10 +31,11 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/two_wallpaper"></meta-data>
+                android:resource="@xml/petrish_wallpaper" />
         </service>
+
         <service
-            android:name=".HugeWormWallpaperService"
+            android:name=".FiftyWormsWallpaperService"
             android:enabled="true"
             android:label="Sample 2"
             android:permission="android.permission.BIND_WALLPAPER">
@@ -44,10 +45,11 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/one_wallpaper"></meta-data>
+                android:resource="@xml/fifty_wallpaper" />
         </service>
+
         <service
-            android:name=".FiftyWormsWallpaperService"
+            android:name=".HugeWormWallpaperService"
             android:enabled="true"
             android:label="Sample 3"
             android:permission="android.permission.BIND_WALLPAPER">
@@ -57,10 +59,10 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/fifty_wallpaper"></meta-data>
+                android:resource="@xml/one_wallpaper" />
         </service>
         <service
-            android:name=".PetriDishWallpaperService"
+            android:name=".TwoWormsWallpaperService"
             android:enabled="true"
             android:label="Sample 4"
             android:permission="android.permission.BIND_WALLPAPER">
@@ -70,8 +72,10 @@
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/petrish_wallpaper"></meta-data>
+                android:resource="@xml/two_wallpaper" />
         </service>
+
+
 
 
     </application>
