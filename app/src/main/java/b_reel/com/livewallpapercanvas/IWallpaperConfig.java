@@ -9,4 +9,5 @@ public interface IWallpaperConfig {
     int getWormSegmentSize();
     float getWormSpeed();
     int getStrokeWidth();
+    int getInteractionRadius();
 }

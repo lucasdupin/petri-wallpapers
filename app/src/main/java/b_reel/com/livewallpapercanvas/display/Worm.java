@@ -83,7 +83,7 @@ public class Worm {
         // Move head if moved to the target point
         float distX = destinationPoint.x - start.x; float distY = destinationPoint.y - start.y;
         float sqDistanceTravelled = distX*distX + distY*distY;
-        final int MIN_DIST = 25;
+        final int MIN_DIST = config.getInteractionRadius();
 
         if ( sqDistanceTravelled < MIN_DIST*MIN_DIST) {
             move();

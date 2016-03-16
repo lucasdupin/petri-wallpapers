@@ -9,27 +9,32 @@ public class FiftyWormsWallpaperService extends WormWallpaperService {
         return new WormWallpaperService.Engine(new IWallpaperConfig() {
             @Override
             public int getWormCount() {
-                return 50;
-            }
-
-            @Override
-            public int getWormSegments() {
-                return 25;
-            }
-
-            @Override
-            public int getWormSegmentSize() {
                 return 35;
             }
 
             @Override
+            public int getWormSegments() {
+                return 15;
+            }
+
+            @Override
+            public int getWormSegmentSize() {
+                return 40;
+            }
+
+            @Override
             public float getWormSpeed() {
-                return 0.9f;
+                return 0.65f;
             }
 
             @Override
             public int getStrokeWidth() {
                 return 5;
+            }
+
+            @Override
+            public int getInteractionRadius() {
+                return 35;
             }
         });
     }

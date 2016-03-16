@@ -24,12 +24,17 @@ public class TwoWormsWallpaperService extends WormWallpaperService {
 
             @Override
             public float getWormSpeed() {
-                return 1.5f;
+                return 0.25f;
             }
 
             @Override
             public int getStrokeWidth() {
                 return 60;
+            }
+
+            @Override
+            public int getInteractionRadius() {
+                return 150;
             }
         });
     }
