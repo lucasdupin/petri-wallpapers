@@ -21,10 +21,10 @@ public class Worm {
     public static final float MAX_HUE_ROTATION_PER_FRAME = 10f;
 
     // Worm components
-    private Point[] points;
+    private PointF[] points;
 
     // Where to go
-    private Point destinationPoint = new Point();
+    private PointF destinationPoint = new PointF();
 
     // Randomize next position
     private Point screenBounds;
@@ -36,13 +36,13 @@ public class Worm {
         this.screenBounds = screenBounds;
         this.config = config;
 
-        Point start = new Point((int)(screenBounds.x * Math.random()), (int) (screenBounds.y * Math.random()));
+        PointF start = new PointF((float)(screenBounds.x * Math.random()), (float) (screenBounds.y * Math.random()));
 
-        points = new Point[config.getWormSegments()];
+        points = new PointF[config.getWormSegments()];
         points[0] = start;
 
         for (int i=1; i < config.getWormSegments(); i++) {
-            points[i] = new Point(start.x + config.getWormSegmentSize() * i, start.y);
+            points[i] = new PointF(start.x + config.getWormSegmentSize() * i, start.y);
         }
 
         destinationPoint.set(start.x, start.y);
@@ -78,16 +78,17 @@ public class Worm {
     }
 
     public void update() {
-        Point start = points[0];
+        PointF start = points[0];
 
         // Move head if moved to the target point
-        int distX = destinationPoint.x - start.x; int distY = destinationPoint.y - start.y;
+        float distX = destinationPoint.x - start.x; float distY = destinationPoint.y - start.y;
         float sqDistanceTravelled = distX*distX + distY*distY;
         final int MIN_DIST = 25;
 
         if ( sqDistanceTravelled < MIN_DIST*MIN_DIST) {
             move();
         }
+        Log.d(TAG, "Will travel " + Math.sqrt(sqDistanceTravelled) + " pixels: " + start.x + "," + start.y + " - " + destinationPoint.x + ":" + destinationPoint.y);
 
         // Move the head
         start.x += (destinationPoint.x - start.x) * 0.1 * config.getWormSpeed();
@@ -103,8 +104,8 @@ public class Worm {
 
         // Move components
         for (int i=0; i < points.length - 1; i++) {
-            Point segment = points[i];
-            Point nextSegment = points[i + 1];
+            PointF segment = points[i];
+            PointF nextSegment = points[i + 1];
             // Calculate the distance between them
             PointF offset = new PointF(nextSegment.x - segment.x, nextSegment.y - segment.y);
             // Normalize vector to move it to the next position
