@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "b_reel.com.livewallpapercanvas"
+        applicationId "in.lucasdup.petri"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1

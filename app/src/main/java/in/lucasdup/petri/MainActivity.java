@@ -1,10 +1,9 @@
-package b_reel.com.livewallpapercanvas;
+package in.lucasdup.petri;
 
 import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 

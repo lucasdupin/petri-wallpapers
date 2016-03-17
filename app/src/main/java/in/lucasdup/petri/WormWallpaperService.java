@@ -1,4 +1,4 @@
-package b_reel.com.livewallpapercanvas;
+package in.lucasdup.petri;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -6,14 +6,13 @@ import android.graphics.Point;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import b_reel.com.livewallpapercanvas.display.Worm;
+import in.lucasdup.petri.display.Worm;
 
 /**
  * Created by user on 3/14/16.

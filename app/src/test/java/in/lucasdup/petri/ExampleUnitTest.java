@@ -1,4 +1,4 @@
-package b_reel.com.livewallpapercanvas;
+package b_reel.com.petri;
 
 import org.junit.Test;
 

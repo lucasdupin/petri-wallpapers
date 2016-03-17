@@ -1,4 +1,4 @@
-package b_reel.com.livewallpapercanvas;
+package in.lucasdup.petri;
 
 /**
  * Created by user on 3/16/16.

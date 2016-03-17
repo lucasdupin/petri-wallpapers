@@ -1,15 +1,15 @@
-package b_reel.com.livewallpapercanvas;
+package in.lucasdup.petri;
 
 /**
  * Created by user on 3/16/16.
  */
-public class HugeWormWallpaperService extends WormWallpaperService {
+public class TwoWormsWallpaperService extends WormWallpaperService {
     @Override
     public Engine onCreateEngine() {
         return new WormWallpaperService.Engine(new IWallpaperConfig() {
             @Override
             public int getWormCount() {
-                return 1;
+                return 2;
             }
 
             @Override
@@ -19,22 +19,22 @@ public class HugeWormWallpaperService extends WormWallpaperService {
 
             @Override
             public int getWormSegmentSize() {
-                return 300;
+                return 30;
             }
 
             @Override
             public float getWormSpeed() {
-                return 1;
+                return 0.25f;
             }
 
             @Override
             public int getStrokeWidth() {
-                return 200;
+                return 60;
             }
 
             @Override
             public int getInteractionRadius() {
-                return 25;
+                return 150;
             }
 
             @Override

@@ -1,4 +1,4 @@
-package b_reel.com.livewallpapercanvas;
+package in.lucasdup.petri;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

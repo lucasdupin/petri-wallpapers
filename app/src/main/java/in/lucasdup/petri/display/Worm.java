@@ -1,4 +1,4 @@
-package b_reel.com.livewallpapercanvas.display;
+package in.lucasdup.petri.display;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -6,9 +6,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.PointF;
-import android.util.Log;
 
-import b_reel.com.livewallpapercanvas.IWallpaperConfig;
+import in.lucasdup.petri.IWallpaperConfig;
 
 /**
  * Created by user on 3/15/16.
