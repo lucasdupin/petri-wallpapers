@@ -6,6 +6,7 @@ import android.graphics.Point;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
@@ -27,6 +28,7 @@ public class WormWallpaperService extends WallpaperService {
         private IWallpaperConfig config;
         private Handler handler = new Handler();
         private List<Worm> worms = new ArrayList<>();
+        private final Object lock = new Object();
 
         private int lastWidth;
         private int lastHeight;
@@ -37,28 +39,36 @@ public class WormWallpaperService extends WallpaperService {
 
         @Override
         public void onSurfaceCreated(SurfaceHolder holder) {
-            super.onSurfaceCreated(holder);
+            synchronized (lock) {
+                super.onSurfaceCreated(holder);
+            }
         }
 
         @Override
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-            super.onSurfaceChanged(holder, format, width, height);
-            createWorms(width, height);
+            synchronized (lock) {
+                super.onSurfaceChanged(holder, format, width, height);
+                createWorms(width, height);
+            }
         }
 
         @Override
         public void onSurfaceDestroyed(SurfaceHolder holder) {
-            super.onSurfaceDestroyed(holder);
-            handler.removeCallbacks(this);
+            synchronized (lock) {
+                super.onSurfaceDestroyed(holder);
+                handler.removeCallbacks(this);
+            }
         }
 
         @Override
         public void onVisibilityChanged(boolean visible) {
-            super.onVisibilityChanged(visible);
-            if (visible) {
-                run();
-            } else {
-                createWorms(lastWidth, lastHeight);
+            synchronized (lock) {
+                super.onVisibilityChanged(visible);
+                if (visible) {
+                    run();
+                } else {
+                    createWorms(lastWidth, lastHeight);
+                }
             }
         }
 
@@ -98,21 +108,23 @@ public class WormWallpaperService extends WallpaperService {
         }
 
         public void draw() {
-            SurfaceHolder holder = getSurfaceHolder();
             this.moveWorms();
 
-            try {
-                Canvas canvas = holder.lockCanvas();
-                if (canvas != null) {
-                    canvas.drawColor(Color.BLACK);
-                    for (Worm worm : worms) {
-                        worm.draw(canvas);
+            synchronized (lock) {
+                SurfaceHolder holder = getSurfaceHolder();
+                Canvas canvas = null;
+                try {
+                    canvas = holder.lockCanvas();
+                    if (canvas != null) {
+                        canvas.drawColor(Color.BLACK);
+                        for (Worm worm : worms) {
+                            worm.draw(canvas);
+                        }
                     }
+                    holder.unlockCanvasAndPost(canvas);
+                } catch (IllegalArgumentException e){
+                    Log.d("WS", "Invalid canvas");
                 }
-                holder.unlockCanvasAndPost(canvas);
-            } catch (IllegalArgumentException e){
-                //Log.e("WS", "CANVAS Illegal arg");
-                //e.printStackTrace();
             }
         }
     }

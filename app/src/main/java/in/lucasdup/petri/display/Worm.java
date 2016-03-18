@@ -108,9 +108,12 @@ public class Worm {
             PointF offset = new PointF(nextSegment.x - segment.x, nextSegment.y - segment.y);
             // Normalize vector to move it to the next position
             double length = Math.sqrt(offset.x*offset.x + offset.y*offset.y);
-            offset.x /= length; offset.y /= length;
-            // Move it
-            nextSegment.set((int) (segment.x + offset.x * segmentSize), (int) (segment.y + offset.y * segmentSize));
+            if (length != 0) {
+                offset.x /= length;
+                offset.y /= length;
+                // Move it
+                nextSegment.set((int) (segment.x + offset.x * segmentSize), (int) (segment.y + offset.y * segmentSize));
+            }
         }
     }
 
