@@ -39,7 +39,7 @@ public class FiftyWormsWallpaperService extends WormWallpaperService {
 
             @Override
             public int getWormInterestRadius() {
-                return 650;
+                return 1000;
             }
         });
     }
