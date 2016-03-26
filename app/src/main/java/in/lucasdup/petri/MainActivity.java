@@ -5,6 +5,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.fpl.liquidfun.World;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,5 +17,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
                 new ComponentName(this, WormWallpaperService.class));
         startActivity(intent);
+
+        World world = new World(0, 0);
+
     }
 }
