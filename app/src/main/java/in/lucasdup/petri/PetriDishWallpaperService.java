@@ -1,12 +1,14 @@
 package in.lucasdup.petri;
 
+import in.lucasdup.petri.base.WormWallpaperService;
+
 /**
  * Created by user on 3/16/16.
  */
 public class PetriDishWallpaperService extends WormWallpaperService {
     @Override
     public Engine onCreateEngine() {
-        return new WormWallpaperService.Engine(new IWallpaperConfig() {
+        return new WormWallpaperService.Engine(new IWormConfig() {
             @Override
             public int getWormCount() {
                 return 50;

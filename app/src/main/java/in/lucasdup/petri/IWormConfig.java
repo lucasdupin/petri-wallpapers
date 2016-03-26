@@ -3,7 +3,7 @@ package in.lucasdup.petri;
 /**
  * Created by user on 3/16/16.
  */
-public interface IWallpaperConfig {
+public interface IWormConfig {
     int getWormCount();
     int getWormSegments();
     int getWormSegmentSize();

@@ -1,4 +1,4 @@
-package in.lucasdup.petri;
+package in.lucasdup.petri.base;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -13,6 +13,7 @@ import android.view.SurfaceHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.lucasdup.petri.IWormConfig;
 import in.lucasdup.petri.display.Worm;
 
 /**
@@ -25,7 +26,7 @@ public class WormWallpaperService extends WallpaperService {
     }
 
     protected class Engine extends WallpaperService.Engine implements Runnable {
-        private IWallpaperConfig config;
+        private IWormConfig config;
         private Handler handler = new Handler();
         private List<Worm> worms = new ArrayList<>();
         private final Object lock = new Object();
@@ -33,7 +34,7 @@ public class WormWallpaperService extends WallpaperService {
         private int lastWidth;
         private int lastHeight;
 
-        public Engine(@NonNull IWallpaperConfig config) {
+        public Engine(@NonNull IWormConfig config) {
             this.config = config;
         }
 

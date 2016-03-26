@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.PointF;
 
-import in.lucasdup.petri.IWallpaperConfig;
+import in.lucasdup.petri.IWormConfig;
 
 /**
  * Created by user on 3/15/16.
@@ -15,7 +15,7 @@ import in.lucasdup.petri.IWallpaperConfig;
 public class Worm {
     public static final String TAG = "Worm";
 
-    private IWallpaperConfig config;
+    private IWormConfig config;
     public static final float HUE_SPEED = 0.03f;
     public static final float MAX_HUE_ROTATION_PER_FRAME = 10f;
 
@@ -31,7 +31,7 @@ public class Worm {
     // Drawing
     private float[] HSV = new float[] {360f * (float)Math.random(), 0.89f, 0.91f};
 
-    public Worm(IWallpaperConfig config, Point screenBounds) {
+    public Worm(IWormConfig config, Point screenBounds) {
         this.screenBounds = screenBounds;
         this.config = config;
 

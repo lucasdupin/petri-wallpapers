@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.google.fpl.liquidfun.World;
 
+import in.lucasdup.petri.base.WormWallpaperService;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
