@@ -10,7 +10,9 @@ import android.graphics.PointF;
 import in.lucasdup.petri.IWormConfig;
 
 /**
- * Created by user on 3/15/16.
+ * Structure of simple bacteria, smooth movement with segments
+ * no flagellum or cilium
+ * Created by lucasdupin on 3/15/16.
  */
 public class Worm {
     public static final String TAG = "Worm";
@@ -79,11 +81,10 @@ public class Worm {
     public void update() {
         PointF start = points[0];
 
-        // Move head if moved to the target point
+        // Move head if close to the target point, getting a new target point
         float distX = destinationPoint.x - start.x; float distY = destinationPoint.y - start.y;
         float sqDistanceTravelled = distX*distX + distY*distY;
         final int MIN_DIST = config.getInteractionRadius();
-
         if ( sqDistanceTravelled < MIN_DIST*MIN_DIST) {
             move();
         }

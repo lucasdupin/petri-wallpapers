@@ -20,7 +20,5 @@ public class MainActivity extends AppCompatActivity {
                 new ComponentName(this, WormWallpaperService.class));
         startActivity(intent);
 
-        World world = new World(0, 0);
-
     }
 }

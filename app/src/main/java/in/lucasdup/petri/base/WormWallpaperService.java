@@ -17,7 +17,8 @@ import in.lucasdup.petri.IWormConfig;
 import in.lucasdup.petri.display.Worm;
 
 /**
- * Created by user on 3/14/16.
+ * Simple bacteria wallpaper, not cilia, no flagellum
+ * Created by lucasdupin on 3/14/16.
  */
 public class WormWallpaperService extends WallpaperService {
     @Override
@@ -113,7 +114,7 @@ public class WormWallpaperService extends WallpaperService {
 
             synchronized (lock) {
                 SurfaceHolder holder = getSurfaceHolder();
-                Canvas canvas = null;
+                Canvas canvas;
                 try {
                     canvas = holder.lockCanvas();
                     if (canvas != null) {
