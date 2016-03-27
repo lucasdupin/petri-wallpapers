@@ -131,7 +131,6 @@ public class LiquidFunDebugDraw extends Draw {
     }
 
     public void drawTransform(Transform xf) {
-        Log.d(TAG, "draw transform");
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         paint.setColor(android.graphics.Color.MAGENTA);

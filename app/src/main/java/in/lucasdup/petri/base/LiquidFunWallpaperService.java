@@ -1,7 +1,6 @@
 package in.lucasdup.petri.base;
 
 import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
 import android.support.annotation.NonNull;
@@ -11,8 +10,6 @@ import android.view.SurfaceHolder;
 import com.google.fpl.liquidfun.Body;
 import com.google.fpl.liquidfun.BodyDef;
 import com.google.fpl.liquidfun.BodyType;
-import com.google.fpl.liquidfun.ParticleSystem;
-import com.google.fpl.liquidfun.ParticleSystemDef;
 import com.google.fpl.liquidfun.PolygonShape;
 import com.google.fpl.liquidfun.World;
 
@@ -57,14 +54,10 @@ public abstract class LiquidFunWallpaperService extends WallpaperService {
         private static final int VELOCITY_ITERATIONS = 6;
         private static final int POSITION_ITERATIONS = 2;
         private static final int PARTICLE_ITERATIONS = 5;
-        private static final float WORLD_HEIGHT = 3f;
 
         // World size in px
         private float surfaceWidth;
         private float surfaceHeight;
-        // World size in meters
-        private float worldWidth;
-        private float worldHeight;
 
         // All visible elements
         private List<IDrawableBody> drawables;
@@ -100,34 +93,34 @@ public abstract class LiquidFunWallpaperService extends WallpaperService {
             // boundary definitions
             // top
             boundaryPolygon.setAsBox(
-                    worldWidth,
+                    surfaceWidth,
                     BOUNDARY_THICKNESS,
-                    worldWidth / 2,
-                    worldHeight + BOUNDARY_THICKNESS,
+                    surfaceWidth / 2,
+                    surfaceHeight + BOUNDARY_THICKNESS,
                     0);
             mBoundaryBody.createFixture(boundaryPolygon, 0.0f);
             // bottom
             boundaryPolygon.setAsBox(
-                    worldWidth,
+                    surfaceWidth,
                     BOUNDARY_THICKNESS,
-                    worldWidth / 2,
+                    surfaceWidth / 2,
                     -BOUNDARY_THICKNESS,
                     0);
             mBoundaryBody.createFixture(boundaryPolygon, 0.0f);
             // left
             boundaryPolygon.setAsBox(
                     BOUNDARY_THICKNESS,
-                    worldHeight,
+                    surfaceHeight,
                     -BOUNDARY_THICKNESS,
-                    worldHeight / 2,
+                    surfaceHeight / 2,
                     0);
             mBoundaryBody.createFixture(boundaryPolygon, 0.0f);
             // right
             boundaryPolygon.setAsBox(
                     BOUNDARY_THICKNESS,
-                    worldHeight,
-                    worldWidth + BOUNDARY_THICKNESS,
-                    worldHeight / 2,
+                    surfaceHeight,
+                    surfaceWidth + BOUNDARY_THICKNESS,
+                    surfaceHeight / 2,
                     0);
             mBoundaryBody.createFixture(boundaryPolygon, 0.0f);
 
@@ -179,13 +172,9 @@ public abstract class LiquidFunWallpaperService extends WallpaperService {
         @Override
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             super.onSurfaceChanged(holder, format, width, height);
-//            worldHeight = WORLD_HEIGHT;
-//            worldWidth = width * WORLD_HEIGHT / height;
             surfaceWidth = width;
             surfaceHeight = height;
-            worldWidth = width;
-            worldHeight = height;
-            Log.d(TAG, "World size: " + worldWidth + "x" + worldHeight);
+            Log.d(TAG, "World size: " + surfaceWidth + "x" + surfaceHeight);
 
             // Reset the boundary
             initBoundaries();
@@ -221,9 +210,8 @@ public abstract class LiquidFunWallpaperService extends WallpaperService {
                     // Background
                     canvas.drawColor(android.graphics.Color.BLACK);
                     canvas.save();
-                    Log.d(TAG, "Scale " + (surfaceHeight / worldHeight));
-//                    canvas.scale(surfaceWidth / worldWidth,
-//                            surfaceHeight / worldHeight);
+//                    canvas.scale(surfaceWidth / surfaceWidth,
+//                            surfaceHeight / surfaceHeight);
 
                     // Each bacteria
                     for (IDrawableBody drawable :  drawables) {
